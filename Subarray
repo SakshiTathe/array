@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Array {
+    
+    // Function to create and return an ArrayList
+    public List<Integer> createArrayList(Scanner sc) {
+        List<Integer> list = new ArrayList<>();
+        System.out.print("Enter the size of the list: ");
+        int size = sc.nextInt();
+        System.out.println("Enter " + size + " integers:");
+        for (int i = 0; i < size; i++) {
+            list.add(sc.nextInt());
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+        Array arrayInstance = new Array();
+        Scanner sc = new Scanner(System.in);
+        List<Integer> list1 = arrayInstance.createArrayList(sc); 
+
+        ArrayList<ArrayList<Integer>> list2D= new ArrayList<ArrayList<Integer>>();
+ 
+        System.out.println("List 1: " + list2D);
+
+        for(int i=0;i<list1.size();i++){
+            for(int l=i;l<list1.size();l++){
+                ArrayList<Integer> sublist = new ArrayList<>();
+                for(int j=i;j<=l;j++){
+                    sublist.add(list1.get(j));
+                }
+                list2D.add(sublist);
+            }
+        }
+        System.out.println(list2D);
+    }
+}
+ 
