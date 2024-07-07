@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Array {
+    
+    // Function to create and return an ArrayList
+    public List<Integer> createArrayList(Scanner sc) {
+        List<Integer> list = new ArrayList<>();
+        System.out.print("Enter the size of the list: ");
+        int size = sc.nextInt();
+        System.out.println("Enter " + size + " integers:");
+        for (int i = 0; i < size; i++) {
+            list.add(sc.nextInt());
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+        Array arrayInstance = new Array();
+        Scanner sc = new Scanner(System.in);   
+        List<Integer> list1 = arrayInstance.createArrayList(sc);
+        System.out.println("List 1: " + list1); 
+
+        int k=0,index,count=0;
+        int max = Integer.MIN_VALUE;
+
+        while (k<=list1.size()-1) {
+            index=k+list1.get(k);
+            if(index>=list1.size()-1){
+                index=list1.size()-1;
+            }
+            boolean found = false;
+            for(int i=k+1;i<=index;i++){
+                if(list1.get(i)>=max){
+                    max=list1.get(i);
+                    k=i;
+                    found = true;
+                }
+            }
+            if (!found) {
+                break;
+             }
+            count++;
+        }
+        System.out.println("Steps: " + count);
+    }
+}
