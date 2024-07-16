@@ -1,0 +1,33 @@
+import java.util.*;
+public class Array {
+    public static void subarray(int[] arr, int size, int i, ArrayList<Integer> sublist) {
+        if (i >= size) {
+            return;
+        } else {
+            sublist.add(arr[i]);
+            i = i + 1; 
+            subarray(arr, size, i, sublist); 
+            sumZero(sublist);
+            sublist.remove(sublist.size() - 1);
+            subarray(arr, size, i, sublist);
+            sumZero(sublist);
+        }
+    }
+    public static void sumZero(ArrayList<Integer> sublist){
+        int sum=0;
+        for(int i=0;i<sublist.size();i++){
+            sum=sum+sublist.get(i);
+        }
+        if(sum==0 && sublist.size()>0){
+            System.out.println(sublist);
+        }
+
+    }
+    
+    public static void main(String[] args) { 
+        ArrayList<Integer> sublist = new ArrayList<>();
+        int[] arr = {1, 3,4,0,-1};
+        int size = arr.length;
+        subarray(arr, size, 0, sublist);
+    }
+}
