@@ -11,13 +11,13 @@ public class Array {
             sublist.add(arr[i]);
             i = i + 1; 
             subarray(arr, size, i, sublist); 
-            sumZero(sublist);
+            maxproduct(sublist);
             sublist.remove(sublist.size() - 1);
             subarray(arr, size, i, sublist);
         }
     }
 
-    public static void sumZero(ArrayList<Integer> sublist) {
+    public static void maxproduct(ArrayList<Integer> sublist) {
         int product = 1;
         for (int i = 0; i < sublist.size(); i++) {
             product *= sublist.get(i);
