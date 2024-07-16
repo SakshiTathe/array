@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Array {
+    static int max = Integer.MIN_VALUE;
+    static ArrayList<Integer> maxSublist = new ArrayList<>();
+
+    public static void subarray(int[] arr, int size, int i, ArrayList<Integer> sublist) {
+        if (i >= size) {
+            return;
+        } else {
+            sublist.add(arr[i]);
+            i = i + 1; 
+            subarray(arr, size, i, sublist); 
+            sumZero(sublist);
+            sublist.remove(sublist.size() - 1);
+            subarray(arr, size, i, sublist);
+        }
+    }
+
+    public static void sumZero(ArrayList<Integer> sublist) {
+        int product = 1;
+        for (int i = 0; i < sublist.size(); i++) {
+            product *= sublist.get(i);
+        }
+        if (product > max) {
+            max = product;
+            maxSublist = new ArrayList<>(sublist);  // Copy the sublist
+        }
+    }
+
+    public static void main(String[] args) { 
+        ArrayList<Integer> sublist = new ArrayList<>();
+        int[] arr = {1, 3, 4, 0, -1};
+        int size = arr.length;
+        subarray(arr, size, 0, sublist);
+        
+        System.out.println("Maximum product: " + max);
+        System.out.println("Sublist with maximum product: " + maxSublist);
+    }
+}
