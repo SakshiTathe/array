@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Factorial {
+    public static void main(String[] args) {
+        int num = 10;
+        List<Integer> arr = new ArrayList<>();
+        List<Integer> arr2 = new ArrayList<>();
+        num--; 
+        int carry = 0, multi, remain;
+        int num2 = 10; 
+        while (num2 != 0) {
+            multi = num2 % 10;
+            num2 = num2 / 10;
+            arr.add(multi);
+        }
+        System.out.println(arr);
+
+        while (num != 1) {
+            int i = 0;
+            carry = 0;
+            while (i < arr.size()) {
+                multi = (arr.get(i) * num) + carry;
+                carry = multi / 10;
+                remain = multi % 10;
+
+                arr2.add(remain);
+                if (i == arr.size() - 1 && carry > 0) {
+                    while (carry != 0) {
+                        arr2.add(carry % 10);
+                        carry = carry / 10;
+                    }
+                }
+                i++;
+            }
+            arr.clear();
+            arr.addAll(arr2);
+            arr2.clear();
+            num--;
+        }
+        // Print the result in the correct order
+        for (int j = arr.size() - 1; j >= 0; j--) {
+            System.out.print(arr.get(j));
+        }
+    }
+}
