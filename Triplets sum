@@ -1,0 +1,17 @@
+public class Array {
+public static void main(String[] args) {
+        int arr1[] = {1,2,4,10,12,8,13,0,7};
+        int sum=12;
+        System.out.println("Triplets having sum is equal to given number");
+        for(int i=0;i<arr1.length;i++){
+            for(int j=i+1;j<arr1.length;j++){
+                for(int k=j+1;k<arr1.length;k++){
+                    int add=0;
+                    add=arr1[i]+arr1[j]+arr1[k];
+                    if(add==sum){
+                        System.out.println(arr1[i]+","+arr1[j]+","+arr1[k]);
+                    }
+                }
+            }
+        }
+    }
