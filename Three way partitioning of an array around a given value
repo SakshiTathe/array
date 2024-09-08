@@ -1,0 +1,37 @@
+
+class Innerbasic {
+    public void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public void travel(int[] arr) {
+        for (int ele : arr) {
+            System.out.print(ele + ",");
+        }
+        System.out.println(" ");
+    }
+}
+public class Partition {
+    public static void main(String[] args) {
+        int arr[] = {1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 32},lowVal = 20,highVal = 20;
+        Innerbasic obj=new Innerbasic();
+        int i=1,back=arr.length-1;
+        obj.travel(arr);
+        while(i<back){
+            if(arr[i-1]>=lowVal && arr[i]<lowVal ){
+                obj.swap(arr, i-1, i);
+                if(i>1) i--;
+            }
+            else if((arr[i]>lowVal && arr[i]<highVal) && arr[i-1]>=highVal){
+                obj.swap(arr, i-1, i);
+            }
+            else if(arr[i]>highVal){
+                obj.swap(arr, back, i);
+                back--;
+            }
+            else i++;
+        }
+        obj.travel(arr);
+    }
+}
