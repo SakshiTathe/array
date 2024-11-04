@@ -1,0 +1,38 @@
+class Innerbasic {
+    public void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public void travel(int[] arr) {
+        for (int ele : arr) {
+            System.out.print(ele + ",");
+        }
+        System.out.println(" ");
+    }
+    public void bublesort(int[] arr){
+        Innerbasic obj1=new Innerbasic();
+        for(int j=0;j<arr.length;j++){
+            for(int k=0;k<arr.length-1-j;k++){
+                if(arr[k]>arr[k+1]){
+                    obj1.swap(arr,k,k+1);
+                }
+            }
+        }
+    }
+} 
+public class basic {
+    public static void main(String[] args) {
+        int arr[]={56 ,67  ,79,1,78};
+        Innerbasic obj=new Innerbasic();
+        obj.bublesort(arr);
+        obj.travel(arr);
+        int mean=0,size=arr.length;
+        if(size %2==0){
+            mean=(arr[size/2-1]+arr[size/2])/2;
+        }else{
+            mean=arr[size/2];
+        }
+        System.out.println(mean);
+    }
+}
