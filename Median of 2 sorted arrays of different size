@@ -1,0 +1,39 @@
+class Innerbasic {
+    public void travel(int[] arr) {
+        for (int ele : arr) {
+            System.out.print(ele + ",");
+        }
+        System.out.println(" ");
+    }
+} 
+public class basic {
+    public static void main(String[] args) {
+        int arr1[]={1, 5, 9, 10,15,20 };
+        int arr2[]={2, 3, 13, 27};
+        Innerbasic obj=new Innerbasic(); 
+        int size2=arr2.length-1;
+        int last=arr1.length-1;
+        for(int i=size2;i>=0;i--){
+            int first=arr2[i];
+            int j = last;
+            while (j >= 0 && arr1[j] > first) {
+                j--;
+            }
+            if (j == last) continue;
+            int temp = arr2[i];
+            arr2[i] = arr1[last];
+            for (int k = last; k > j + 1; k--) {
+                arr1[k] = arr1[k - 1];
+            }
+            arr1[j + 1] = temp;
+        }
+        int[] arr3=new int[arr1.length + arr2.length]; 
+        int len=arr3.length,median;
+        System.arraycopy(arr1, 0, arr3, 0, arr1.length);  
+        System.arraycopy(arr2, 0, arr3, arr1.length, arr2.length);
+        if(len%2==0){
+            median=(arr3[len/2]+arr3[(len/2)-1])/2;
+        }else median=arr3[len/2];
+        obj.travel(arr3);
+    }
+}
