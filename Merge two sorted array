@@ -9,24 +9,24 @@ class Innerbasic {
 public class basic {
     public static void main(String[] args) {
         int arr1[]={1, 5, 9, 10, 15, 20};
-        int arr2[]={2, 3, 8, 13};
-        Innerbasic obj=new Innerbasic();
-        int size1=arr1.length-1,size2=arr2.length-1;
+        int arr2[]={2, 3, 13, 27};
+        Innerbasic obj=new Innerbasic(); 
+        int size2=arr2.length-1;
         int last=arr1.length-1;
-        for(int i=size2;i>-1;i--){
+        for(int i=size2;i>=0;i--){
             int first=arr2[i];
-            int j=size1;
-            while (arr1[j]>first) {
+            int j = last;
+            while (j >= 0 && arr1[j] > first) {
                 j--;
             }
-            size1=j+1;
-            int temp=arr2[i];
-            arr2[i]=arr1[last];
-            int k;
-            for(k=last;k>j;k--){
-                arr1[k]=arr1[k-1];
+            if (j == last) continue;
+            int temp = arr2[i];
+            arr2[i] = arr1[last];
+            for (int k = last; k > j + 1; k--) {
+                arr1[k] = arr1[k - 1];
             }
-            arr1[k+1]=temp;
+            
+            arr1[j + 1] = temp;
         }
         obj.travel(arr1);
         obj.travel(arr2);
