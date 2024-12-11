@@ -1,0 +1,27 @@
+class InnerArrays {
+    public void swap(int[] arr,int i){
+        int temp=arr[i];
+        arr[i]=arr[i+1];
+        arr[i+1]=temp;
+    }
+    public void travel(int[] arr) {
+        for (int ele : arr) {
+            System.out.print(ele + ",");
+        }
+        System.out.println(" ");
+    }
+}
+
+class Arrays {
+    public static void main(String[] args) {
+        int[] values = {1, 2, 5, 10, 20, 50, 100, 500, 1000};
+        int v=121,count=0;
+        for(int i=values.length-1;i>=0;i--){
+            if(values[i]<=v && v>0){
+                v=v-values[i];
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
