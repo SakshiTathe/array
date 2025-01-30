@@ -1,0 +1,14 @@
+list1=[]
+multiply=1
+carry=0
+j=0
+list1.append(1)
+for i in range(1,11):
+    for j in range(len(list1)):
+        multiply=(i*list1[j])+carry
+        list1[j]=multiply%10
+        carry=multiply//10
+    if(carry!=0):
+        list1.append(carry)
+    carry=0
+print(list1)
