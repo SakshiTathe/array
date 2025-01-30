@@ -1,0 +1,16 @@
+M = [[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12], 
+    [13, 14, 15, 16], [17, 18, 19, 20]]
+row=len(M)
+col=len(M[0])
+for count in range (col):
+    i=0
+    for j in range (count,-1,-1):
+        print(M[i][j],end=" ")
+        i+=1
+    print()
+for count in range (1,row):
+    j=col-1
+    for i in range (count,row):
+        print(M[i][j],end=" ")
+        j-=1
+    print()
