@@ -1,0 +1,9 @@
+strs = ["eat","tea","tan","ate","nat","bat"]
+output={}
+count=0
+for i in strs:
+    soted=''.join(sorted(i))
+    if soted not in output:
+        output[soted]=[]
+    output[soted].append(i)
+print(output)
