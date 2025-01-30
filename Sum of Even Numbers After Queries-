@@ -1,0 +1,20 @@
+nums = [1,2,3,4]
+queries = [[1,0],[-3,1],[-4,0],[2,3]]
+ans=[]
+sum=0
+for i in nums:
+    if(i%2==0):
+        sum=sum+i
+for i in range (len(queries)):
+    aftersum=queries[i][0]+nums[queries[i][1]]
+    befsum=nums[queries[i][1]]
+    nums[queries[i][1]]=aftersum
+    if(abs(aftersum) %2==0):
+        if(befsum % 2==0):
+            sum=sum+aftersum-befsum
+        else:
+            sum=sum+aftersum
+    elif(aftersum %2!=0 and befsum%2==0):
+        sum=sum-befsum
+    ans.append(sum)
+    print(sum)
