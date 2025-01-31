@@ -1,0 +1,9 @@
+tri = [33, 6, 20, 1, 8, 12, 5, 55, 4, 9]
+tri.sort()
+print(tri)
+sum=float('-inf')
+for i in range(len(tri)-2):
+    trisum=tri[i]+tri[i+1]+tri[i+2]
+    if (sum<trisum) and ((tri[i]+tri[i+1]) >tri[i+2]):
+        sum=trisum
+print(sum)
