@@ -1,0 +1,18 @@
+flowerbed = [1,0,0,0,1]
+flowcount=1
+n=len(flowerbed)
+for i in range (n):
+    if(flowerbed[i]==0):
+        if(i==0 and (flowerbed[i+1]!=1)):
+            flowcount-=1
+            flowerbed[i]=1
+        elif(i==n-1 and (flowerbed[i-1]!=1)):
+            flowcount-=1
+            flowerbed[i]=1
+        elif((flowerbed[i-1]!=1) and (flowerbed[i+1]!=1)):
+            flowcount-=1
+            flowerbed[i]=1
+if(flowcount<=0):
+    print(True)
+else:
+    print(False)
