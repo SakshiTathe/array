@@ -1,0 +1,15 @@
+nums = [2,0,2,1,1,0]
+i,j=0,0
+k=len(nums)-1
+while(j<k):
+    if(nums[j]==0):
+        nums[j],nums[i]=nums[i],nums[j]
+        j+=1
+        i+=1
+    elif(nums[j]==2):
+        nums[j],nums[k]=nums[k],nums[j]
+        j+=1
+        k-=1
+    else:
+        j+=1
+print(nums)
