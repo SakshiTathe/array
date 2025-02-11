@@ -16,3 +16,20 @@ if(flowcount<=0):
     print(True)
 else:
     print(False)
+
+
+
+arr=[1, 0, 0,0, 1]
+n=len(arr)
+k=2
+for i in range (n):
+    if(arr[i]==0):
+        left = (i==0) or (arr[i-1]==0)
+        right = (i==(n-1)) or (arr[i+1]==0)
+        if (left and right):
+            arr[i]=1
+            k-=1
+if k<=0:
+    print(True)
+else:
+    print(False)
