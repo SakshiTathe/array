@@ -1,0 +1,21 @@
+changed = [6,3,0,1]
+changed.sort()
+orignal=[]
+dict={}
+if (len(changed)%2!=0):
+    print(orignal)
+else:
+    for i in changed:
+        if(i not in dict):
+            dict[i]=1
+        else:
+            dict[i]+=1
+for i in changed:
+    if(i*2 in dict) and dict[i]>0 and dict[i*2]>0:
+        dict[i]-=1
+        dict[i*2]-=1
+        orignal.append(i)
+    elif dict[i]>0 and (i*2 not in dict):
+        orignal=[]
+        break
+print(orignal)
