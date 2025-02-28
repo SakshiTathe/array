@@ -1,0 +1,12 @@
+nums = [2,10,2019]
+sum,total,count=0,0,0
+for i in range (len(nums)):
+    if(nums[i]==0):
+        count+=1
+        sum=sum+count
+        if i==(len(nums)-1):total=sum+total
+    else:
+        total=sum+total
+        sum=0
+        count=0
+print(total)
