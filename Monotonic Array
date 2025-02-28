@@ -1,0 +1,11 @@
+nums =[6, 5, 4, 4]
+increment=True
+decrement=True
+for i in range(len(nums)-1):
+    if(nums[i]) < (nums[i+1]):
+        decrement=False
+    elif(nums[i]) > (nums[i+1]):
+        increment=False
+if not increment and not decrement:
+    print(False)
+else:print(True)
