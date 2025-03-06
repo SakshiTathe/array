@@ -1,0 +1,16 @@
+customers = "YYYY"
+pnltcount=0
+for i in customers:
+    if(i=="Y"):
+        pnltcount+=1
+minplt=pnltcount
+minindex=0
+for i in range(len(customers)):
+    if customers[i]=="Y":
+        pnltcount-=1
+    else:
+        pnltcount+=1
+    if pnltcount<minplt:
+        minplt=pnltcount
+        minindex=i+1
+print(minindex)
