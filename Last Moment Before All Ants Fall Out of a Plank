@@ -1,0 +1,6 @@
+n = 4
+left = [4,3]
+right = [0,1]
+maxe= max(left)
+mine=n-min(right)
+print(max(maxe,mine))
