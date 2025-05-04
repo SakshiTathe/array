@@ -1,0 +1,12 @@
+for i in range(len(garbage)-1,-1,-1):
+    if ('G'in garbage[i]) and Gind:
+        Gind=False
+        out+=travel[i-1]
+    if ('M'in garbage[i]) and Mind:
+        Mind=False
+        out+=travel[i-1]
+    if ('P'in garbage[i]) and Pind:
+        Pind=False
+        out+=travel[i-1]
+    out+=len(garbage[i])
+print(out)
