@@ -1,0 +1,11 @@
+nums=[1,4,6,8,10]
+sum=0
+for i in nums:
+    sum+=i
+result=[]
+n=len(nums)
+l=0
+for i in range(n):
+    addi=((nums[i]*i)-l) + ((sum-nums[i]-l)-(nums[i]*(n-i-1)))
+    l=l+nums[i]
+    print(addi,end=",")
