@@ -1,0 +1,20 @@
+nums = [-12,-9,-3,-12,-6,15,20,-25,-20,-15,-10]
+l = [0,1,6,4,8,7]
+r = [4,4,9,7,9,10]
+output=[]
+for i in range(len(l)):
+    maxm=max(nums[l[i]: r[i]+1])
+    minm=min(nums[l[i]: r[i]+1])
+    if((maxm-minm) % ((r[i]-l[i]))!=0):
+        output.append(False)
+    else:
+        d=(maxm-minm)//((r[i]-l[i]))
+        curr=minm
+        isarth=True
+        while(curr<maxm):
+            if curr not in (nums[l[i]: r[i]+1]):
+                isarth=False
+                break
+            curr+=d
+        output.append(isarth)
+print(output)
