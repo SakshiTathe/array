@@ -1,0 +1,11 @@
+arr=[10,4,-8,7]
+sum=0
+for i in arr:
+    sum+=i
+prev,count=0,0
+for i in range (len(arr)-1):
+    prev+=arr[i]
+    sum-=arr[i]
+    if(prev>=sum):
+        count+=1
+print(count)
