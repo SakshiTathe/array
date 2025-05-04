@@ -1,0 +1,16 @@
+words=['aba','bcb','ece','aa','e']
+queries=[(0,2),(1,4),(1,1)]
+count=[]
+c=0
+for i in words:
+    if (i[0] in ['a','e','i','o','u']) and (i[len(i)-1] in ['a','e','i','o','u']):
+        c=c+1
+        count.append(c)
+    else:
+        count.append(c)
+print(count)
+
+for i in queries:
+    r=i[1]
+    l=i[0]
+    print("the sum is : ",(count[r]) - (count[l-1] if (l >0) else 0))
