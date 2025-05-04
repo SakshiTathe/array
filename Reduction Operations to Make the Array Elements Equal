@@ -1,0 +1,11 @@
+arr=[1,1,2,3,3]
+arr.sort()
+operation=0
+n=len(arr)
+
+for i in range (n-1,0,-1):
+    l=arr[i]
+    sl=arr[i-1]
+    if l != sl:
+        operation+=n-i
+print(operation)
