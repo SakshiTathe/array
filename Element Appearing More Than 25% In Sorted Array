@@ -1,0 +1,33 @@
+arr = [1,2,2,6,6,6,6,6,10]
+n=len(arr)
+c=1
+for i in range (n-1):
+    if arr[i]==arr[i+1]:
+        c+=1
+        if c>n//4:
+            print(arr[i])
+            break
+    else:
+        c=1
+
+for i in range (n-(n//4)-1):
+    if arr[i]==arr[i+(n//4)]:
+        print(arr[i])
+        break 
+
+def lastoccur(arr,f,l,el):
+    mid=f+(l-f)
+    if(l>=f):
+        if arr[mid]==el:
+            return mid
+        elif arr[mid]>el:
+            return lastoccur(arr,f,mid-1,el)
+        return lastoccur(arr,mid+1,l,el)
+    return mid
+
+for i in range (n-(n//4)-1):
+    last=lastoccur(arr,i+1,n-1,arr[i])
+    print(arr[i],i,"last:",last)
+    if last+1-i >(n//4):
+        print(arr[i])
+        break
