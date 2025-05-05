@@ -1,0 +1,29 @@
+nums = [1,3,4,1,2,3,1]
+out=[[]]
+dicto={}
+rows=1
+for i in nums:
+    if i in dicto:
+        dicto[i]+=1
+        rows+=1
+        print(len(out),rows)
+        out.append([])
+    else:
+        dicto[i]=1
+    out[dicto[i]-1].append(i)
+print(out)
+
+nums = [1, 3, 4, 1, 2, 3, 1]
+out = []
+dicto = {}
+
+for i in nums:
+    count = dicto.get(i, 0)
+    dicto[i] = count + 1
+    
+    while len(out) < dicto[i]:
+        out.append([])
+    
+    out[count].append(i)
+
+print(out)
