@@ -1,0 +1,11 @@
+skill = [4,3]
+n=len(skill)
+skill.sort()
+chem=0
+target = skill[0] + skill[-1]
+for i in range((n//2)):
+    if (skill[i]+skill[n-i-1]) != target:
+        chem= -1
+        break
+    chem+= skill[i]*skill[n-i-1]
+print(chem)
