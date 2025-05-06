@@ -1,0 +1,10 @@
+customers = [[1,2],[2,5],[4,3]]
+prev=customers[0][0]
+avg=0
+for i in customers:
+    prev+=i[1]
+    if prev<i[0]:
+        prev=i[0]+i[1]
+    avg+=prev-i[0]
+    print(prev,avg)
+print(avg/len(customers))
