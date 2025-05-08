@@ -1,0 +1,28 @@
+import math
+vect=[]
+
+for j in range (2,1000):
+    flag=True
+    for i in range (2,int(math.sqrt(j)+1)):
+        if j%i==0:
+            flag=False
+            break
+    if flag:
+        vect.append(j)
+nums = [4,9,6,10]
+flag=True
+for i in range(len(nums)-2,-1,-1):
+    new1=nums[i]
+    if new1 > nums[i+1]:
+        print(new1,nums[i+1])
+        j=0
+        while new1 > nums[i+1]:
+            print(new1 , nums[i+1])
+            if new1 >= nums[i+1]:
+                new1=nums[i]
+            else:
+                break
+            new1-=vect[j]
+            j+=1
+    nums[i]=new1
+    print(nums)
