@@ -1,0 +1,30 @@
+def sumfind(n):
+    rem,sum=0,0
+    while n>0:
+        rem=n%10
+        sum=sum+rem
+        n=n//10
+    return sum
+
+nums=[10,12,19,14]
+maxm=0
+for i in range(len(nums)):
+    n=sumfind(nums[i])
+    for j in range(i+1,len(nums)):
+        jsum=sumfind(nums[j])
+        if n==jsum and nums[j]+nums[i]>maxm:
+            maxm=nums[j]+nums[i]
+print(maxm)
+dicto={}
+nums=[18,43,36,13,7]
+maxm=0
+for i in range(len(nums)):
+    n=sumfind(nums[i])
+    if n in dicto:
+        print(maxm, nums[i]+dicto[n])
+        if maxm < nums[i]+dicto[n]:
+            maxm=nums[i]+dicto[n]
+        dicto[n]=max(nums[i],dicto[n])
+    else:
+        dicto[n]=nums[i]
+print(maxm)
