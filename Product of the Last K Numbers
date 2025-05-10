@@ -1,0 +1,25 @@
+op=["ProductOfNumbers","add","add","add","add","add","getProduct","getProduct","getProduct","add","getProduct"]
+num=[[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]
+ProductOfNumbers=[]
+ans=[]
+prev=1
+for i in range(len(op)):
+    n=len(ProductOfNumbers)
+    if op[i]=="ProductOfNumbers":
+        ProductOfNumbers.clear()
+        ans.append(None)
+    if op[i]=='add':
+        prev=num[i][0]*prev
+        ProductOfNumbers.append(prev)
+        ans.append(None)
+        if prev==0:
+            prev=1
+    if op[i]=="getProduct":
+        div=ProductOfNumbers[n-1-num[i][0]]
+        if div==0:
+            div=1    
+        numh=ProductOfNumbers[n-1]//div
+        print(ProductOfNumbers[n-1],numh,div)
+        ans.append(numh)
+
+print(ans)
