@@ -1,0 +1,20 @@
+from collections import Counter
+txt = "forxxorfxdofr"
+pat = "for"
+dictpat=Counter(pat)
+i=0
+j=0
+count=0
+for j in range(len(txt)):
+    if txt[j] in dictpat:
+        dictpat[txt[j]]=0
+    if j-i+1==len(dictpat):
+        if all(value==0 for value in dictpat.values()):
+            count+=1
+            for a in range(i,j+1):
+                print(txt[a],end='')
+            print('')
+        if txt[i] in dictpat:
+            dictpat[txt[i]]=1
+        i+=1
+print(count)
